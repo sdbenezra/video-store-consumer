@@ -28,10 +28,12 @@ div {
 
 .item-list_container {
   border: 1px solid #000;
+  background-color: #595959;
+
 
 }
 
 ul {
     list-style-type: none;
-  
+
 }
