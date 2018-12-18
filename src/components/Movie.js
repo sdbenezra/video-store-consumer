@@ -11,12 +11,12 @@ const Movie = (props) => {
     <div className="library-container">
       <div className="item-list_container">
       <ul className="movie item">
-        <img src={props.imageUrl}/>
+        <img src={props.image_url}/>
         <div className="item_details">
           <h2>{props.title}</h2>
-          <p>{props.releaseDate}</p>
+          <p>{props.release_date}</p>
         </div>
-        
+
         <button className="item_button">Select for Rental</button>
         </ul>
       </div>
@@ -27,8 +27,8 @@ const Movie = (props) => {
 Movie.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
-  releaseDate: PropTypes.string,
-  imageUrl: PropTypes.string,
+  release_date: PropTypes.string,
+  image_url: PropTypes.string,
 }
 
 export default Movie;
