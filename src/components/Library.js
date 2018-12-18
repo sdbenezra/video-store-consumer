@@ -39,10 +39,7 @@ class Library extends Component {
       return (
         <Movie
           key={movie.id}
-          id={movie.id}
-          title={movie.title}
-          releaseDate={movie.release_date}
-          imageUrl={movie.image_url}
+          {...movie}
           />
       )
 

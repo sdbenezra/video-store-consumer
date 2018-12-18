@@ -42,12 +42,9 @@ class Movies extends Component {
       return (
         <Movie
           key={i}
-          id={movie.id}
-          title={movie.title}
-          releaseDate={movie.release_date}
-          imageUrl={movie.image_url}
+         {...movie}
           />
-      );  
+      );
     });
 
     return(
