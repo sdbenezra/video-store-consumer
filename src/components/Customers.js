@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Customer from './Customer';
+import './Customers.css';
 
 class Customers extends Component {
   constructor() {
@@ -32,13 +33,13 @@ class Customers extends Component {
     render(){
       const customerList = this.state.customers.map((customer, i) => {
         return <Customer
-          key={customer.id}
+          key={i}
           {...customer}
           />
       })
 
       return(
-        <div>
+        <div className="customer-container">
           {customerList}
         </div>
 
