@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SearchForm from './SearchForm'
+import SearchForm from './SearchForm';
 import axios from 'axios';
+import Movie from './Movie';
 
 
 class Movies extends Component {
@@ -34,17 +35,22 @@ class Movies extends Component {
     console.log(this.state.movies);
   };
 
-  const moviesList = this.state.movies.map((movie, i) => {
-    return
-  })
+
 
   render() {
 
+    const moviesList = this.state.movies.map((movie, i) => {
+      return <Movie key={i} {...movie}/>
+    });
 
     return(
       <div>
         <h1>TEST in Movies </h1>
         <SearchForm searchQueryCallback={this.searchMovie}/>
+        <ul>
+          {moviesList}
+        </ul>
+
       </div>
 
     );
