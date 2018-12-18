@@ -10,12 +10,14 @@ const Movie = (props) => {
   return (
     <div className="library-container">
       <div className="item-list_container">
+      <ul className="movie item">
         <div className="item_details">
         <img src={props.imageUrl}/>
           <h2>{props.title}</h2>
           <p>{props.releaseDate}</p>
         </div>
         <button className="item_button">Select for Rental</button>
+        </ul>
       </div>
     </div>
   );
