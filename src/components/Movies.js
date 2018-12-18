@@ -36,11 +36,18 @@ class Movies extends Component {
   };
 
 
-
   render() {
 
     const moviesList = this.state.movies.map((movie, i) => {
-      return <Movie key={i} {...movie}/>
+      return (
+        <Movie
+          key={i}
+          id={movie.id}
+          title={movie.title}
+          releaseDate={movie.release_date}
+          imageUrl={movie.image_url}
+          />
+      );  
     });
 
     return(
