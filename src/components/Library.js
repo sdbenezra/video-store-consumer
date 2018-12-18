@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import Movie from './Movie';
 
 class Library extends Component {
   constructor(props) {
@@ -10,9 +12,47 @@ class Library extends Component {
   }
 
 
+  componentDidMount() {
+    console.log("incomponedid mount");
+    const GET_ALL_LIBRARY_URL = "http://localhost:3000/movies";
+    axios.get(GET_ALL_LIBRARY_URL)
+    .then((response) => {
+      console.log(response.data);
+      this.setState({
+        movies: response.data,
+      });
+    })
+    .catch((error) => {
+      this.setState({
+        error: error.message
+      });
+    });
+
+  }
+
+
+
   render() {
+    let movieData = this.state.movies;
+
+    const movies = movieData.map((movie, i) => {
+      return (
+        <Movie
+          key={movie.id}
+          {...movie}
+          />
+      )
+
+    });
+
     return(
-      <h1>Library </h1>
+      <div>
+        <ul>
+          <li>
+            {movies}
+          </li>
+        </ul>
+      </div>
     )
   }
 
@@ -20,4 +60,4 @@ class Library extends Component {
 
 }
 
-export default Library
+export default Library;
