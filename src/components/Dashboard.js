@@ -5,32 +5,31 @@ import Movies from './Movies';
 import Customers from './Customers';
 import Library from './Library';
 import Home from './Home';
+import axios from 'axios';
 
 class Dashboard extends Component {
   constructor() {
     super();
 
     this.state = {
-      customerName: " ",
-      movieTitle: " ",
       message: "",
       showStatus: false,
+      customer: '',
+      movie: '',
     }
   }
 
   addCustomerName = (customer) => {
     this.setState({
-      customerName: customer.name,
-      customerID: customer.id,
+      customer: customer,
     });
   };
 
   movieActionCallback = (movie) => {
     console.log(movie);
-    let movieTitle = movie.title
 
     this.setState({
-      movieTitle: movieTitle
+      movie: movie,
     })
   }
 
@@ -42,10 +41,26 @@ class Dashboard extends Component {
 
   checkout = () => {
     console.log("rental button pressed");
-    this.setState({
-      showStatus: true,
-      message: `${this.state.movieTitle} checked out to ${this.state.customerName}. Not really the button isn't hooked up yet.`,
+    const postURL = `http://localhost:3000/rentals/${this.state.movie.title}/check-out`;
+    console.log(postURL);
+    axios.post(
+      `http://localhost:3000/rentals/${this.state.movie.title}/check-out`,{
+        movie_id: this.state.movie.id,
+        customer_id: this.state.customer.id,
+        checkout_date: Date.today,
+        due_date: "2018-12-29",
+      })
+    .then((response) => {
+      this.setState({
+        message: `${this.state.movie.title} checked out to ${this.state.customer.name}.`
+      });
+
     })
+    .catch((error) => {
+      this.setState({
+        error: error.message
+      });
+    });
   }
 
   customerCountCallback = (count) => {
@@ -71,7 +86,7 @@ class Dashboard extends Component {
               <Link to="/">Home</Link>
             </button>
             <button>
-              {this.state.movieTitle}
+              {this.state.movie.title}
             </button>
             <button>
               <Link to="/search/">Search</Link>
@@ -83,7 +98,7 @@ class Dashboard extends Component {
               <Link to="/customers/">Customers</Link>
             </button>
             <button>
-              {this.state.customerName}
+              {this.state.customer.name}
             </button>
             <button onClick={this.checkout}>
               Rental
