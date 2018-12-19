@@ -13,16 +13,16 @@ class Dashboard extends Component {
     this.state = {
       customerName: " ",
       movieTitle: " ",
+      message: "",
+      showStatus: false,
     }
-
   }
 
   addCustomerName = (customer) => {
-    const customerName = customer.name;
     this.setState({
-      customerName: customerName
+      customerName: customer.name,
+      customerID: customer.id,
     });
-    console.log(this.state.customerName);
   };
 
   movieActionCallback = (movie) => {
@@ -32,9 +32,28 @@ class Dashboard extends Component {
     this.setState({
       movieTitle: movieTitle
     })
-
   }
 
+  closeStatusBar = () => {
+    console.log("status bar closed");
+    this.setState({showStatus: false});
+    console.log(this.state);
+  }
+
+  checkout = () => {
+    console.log("rental button pressed");
+    this.setState({
+      showStatus: true,
+      message: "Movie checked out",
+    })
+  }
+
+  customerCountCallback = (count) => {
+    this.setState({
+      showStatus: true,
+      message: `Loaded ${count} customers.`
+    })
+  }
 
   render() {
     return(
@@ -59,18 +78,26 @@ class Dashboard extends Component {
             <button>
               {this.state.customerName}
             </button>
-            <button>
+            <button onClick={this.checkout}>
               Rental
             </button>
           </nav>
-          
+
+          <div>
+              <div className={this.state.showStatus ? "status-bar status-bar--success" : "status-bar--hide"}>
+                <p className={"status-bar__text"}>{this.state.message}</p>
+                <button className="status-bar__button" onClick={this.closeStatusBar}>X</button>
+              </div>
+          </div>
+
           <Route path="/" exact component={Home} />
           <Route path="/search/" component={Movies} />
 
           <Route path="/library/"
             render={() => <Library movieActionCallback={this.movieActionCallback} />}
             />
-          <Route path="/customers/" render={() => <Customers customerCallback={this.addCustomerName} />} />
+          <Route path="/customers/" render={() => <Customers customerCallback={this.addCustomerName}
+              customerCount={this.customerCountCallback}/>} />
 
         </div>
 

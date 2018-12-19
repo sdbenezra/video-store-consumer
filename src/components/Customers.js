@@ -24,20 +24,14 @@ class Customers extends Component {
           customers: response.data,
           message: `Loaded ${response.data.length} customers`,
         });
+        this.props.customerCount(this.state.customers.length);
       })
       .catch((error) => {
         this.setState({
           error: error.message
         });
       });
-      console.log(this.state.customers);
     }
-
-  closeStatus = () => {
-    console.log("status bar closed");
-    this.setState({showStatus: false});
-    console.log(this.state);
-  }
 
   render(){
     const customerList = this.state.customers.map((customer, i) => {
@@ -50,12 +44,6 @@ class Customers extends Component {
 
     return(
       <div>
-        <div>
-            <div className={this.state.showStatus ? "status-bar status-bar--success" : "status-bar--hide"}>
-              <p className={"status-bar__text"}>{this.state.message}</p>
-              <button className="status-bar__button" onClick={this.closeStatus}>X</button>
-            </div>
-        </div>
         <div className="item-list_container">
           {customerList}
         </div>
