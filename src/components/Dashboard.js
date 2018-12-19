@@ -39,6 +39,13 @@ class Dashboard extends Component {
     console.log(this.state);
   }
 
+  addMovieStatus = (movie) => {
+    this.setState({
+      showStatus: true,
+      message: `Successfully added ${movie.title} movie to the rental library.`
+    });
+  }
+
   checkout = () => {
     const checkoutDate = new Date(new Date().getTime()+(5*24*60*60*1000));
     let dd = checkoutDate.getDate();
@@ -123,11 +130,14 @@ class Dashboard extends Component {
           </div>
 
           <Route path="/" exact component={Home} />
-          <Route path="/search/" component={Movies} />
+          <Route path="/search/"
+            render={() => <Movies addMovieStatusCallback={this.addMovieStatus}/>}
+          />
+
 
           <Route path="/library/"
             render={() => <Library movieActionCallback={this.movieActionCallback}
-                movieCount={this.movieCountCallback}/>}/>
+                movieCount={this.movieCountCallback}/>} />
 
           <Route path="/customers/" render={() => <Customers customerCallback={this.addCustomerName}
               customerCount={this.customerCountCallback}/>} />

@@ -12,6 +12,7 @@ class Movies extends Component {
     this.state = {
       movies: [],
       query: '',
+
     };
   };
 
@@ -35,6 +36,7 @@ class Movies extends Component {
     console.log(this.state.movies);
   };
 
+
   addToLibrary = (movie) => {
     console.log(movie);
     console.log(movie.title);
@@ -44,7 +46,7 @@ class Movies extends Component {
 
     axios.post(url, movie)
     .then((response) => {
-
+       this.props.addMovieStatusCallback(movie)
     })
     .catch((error) => {
       this.setState({
