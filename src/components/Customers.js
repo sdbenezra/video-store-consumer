@@ -35,7 +35,7 @@ class Customers extends Component {
         return <Customer
           key={i}
           {...customer}
-          customerCallback={() => this.props.customerCallback(customer.name)}
+          customerCallback={() => this.props.customerCallback(customer)}
           />
       })
 

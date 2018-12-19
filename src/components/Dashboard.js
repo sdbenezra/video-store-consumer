@@ -7,7 +7,7 @@ import Library from './Library';
 import Home from './Home';
 
 class Dashboard extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
@@ -17,11 +17,12 @@ class Dashboard extends Component {
 
   }
 
-  addCustomerName = (name) => {
-    const newState = {};
-    newState.customerName = name;
-    this.setState(newState);
-    console.log(newState.customerName);
+  addCustomerName = (customer) => {
+    const customerName = customer.name;
+    this.setState({
+      customerName: customerName
+    });
+    console.log(this.state.customerName);
   };
 
   movieActionCallback = (movie) => {
