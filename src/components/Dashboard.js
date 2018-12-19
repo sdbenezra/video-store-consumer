@@ -55,6 +55,13 @@ class Dashboard extends Component {
     })
   }
 
+  movieCountCallback = (count) => {
+    this.setState({
+      showStatus: true,
+      message: `Successfully loaded ${count} movies from the rental library.`
+    })
+  }
+
   render() {
     return(
       <Router>
@@ -94,8 +101,9 @@ class Dashboard extends Component {
           <Route path="/search/" component={Movies} />
 
           <Route path="/library/"
-            render={() => <Library movieActionCallback={this.movieActionCallback} />}
-            />
+            render={() => <Library movieActionCallback={this.movieActionCallback}
+                movieCount={this.movieCountCallback}/>}/>
+
           <Route path="/customers/" render={() => <Customers customerCallback={this.addCustomerName}
               customerCount={this.customerCountCallback}/>} />
 

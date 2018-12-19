@@ -22,7 +22,6 @@ class Customers extends Component {
       .then((response) => {
         this.setState({
           customers: response.data,
-          message: `Loaded ${response.data.length} customers`,
         });
         this.props.customerCount(this.state.customers.length);
       })

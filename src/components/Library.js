@@ -19,6 +19,7 @@ class Library extends Component {
       this.setState({
         movies: response.data,
       });
+      this.props.movieCount(this.state.movies.length);
     })
     .catch((error) => {
       this.setState({
