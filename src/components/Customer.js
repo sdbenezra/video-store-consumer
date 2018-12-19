@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import "./Customer.css"
 
 const Customer = (props) => {
-  const { name, movies_checked_out_count, customerCallback} = props;
+  const { customerCallback } = props;
   return (
     <div className="item-list_container">
       <div className="customer item">
@@ -22,6 +22,7 @@ const Customer = (props) => {
 Customer.propTypes = {
   name: PropTypes.string,
   movies_checked_out_count: PropTypes.number,
+  customerCallback: PropTypes.func,
 };
 
 export default Customer;

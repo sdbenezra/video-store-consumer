@@ -40,17 +40,24 @@ class Dashboard extends Component {
   }
 
   checkout = () => {
+    const checkoutDate = new Date(new Date().getTime()+(5*24*60*60*1000));
+    let dd = checkoutDate.getDate();
+    let mm = checkoutDate.getMonth() + 1;
+    let y = checkoutDate.getFullYear();
+
+    let checkoutFormattedDate = '"' + y + '-' + mm + '-'+ dd + '"';
+
+    console.log(`Formatted date: ${checkoutFormattedDate}`);
     console.log("rental button pressed");
     const postURL = `http://localhost:3000/rentals/${this.state.movie.title}/check-out`;
     console.log(postURL);
-    axios.post(
-      `http://localhost:3000/rentals/${this.state.movie.title}/check-out`,{
+    axios.post(postURL,{
         movie_id: this.state.movie.id,
         customer_id: this.state.customer.id,
         checkout_date: Date.today,
-        due_date: "2018-12-29",
+        due_date: checkoutFormattedDate,
       })
-    .then((response) => {
+    .then(() => {
       this.setState({
         message: `${this.state.movie.title} checked out to ${this.state.customer.name}.`
       });
@@ -130,7 +137,6 @@ class Dashboard extends Component {
       </Router>
     )
   }
-
 }
 
 
