@@ -14,7 +14,7 @@ const Movie = (props) => {
     <div className="library-container">
       <div className="item-list_container">
       <ul className="movie item">
-        <img src={image_url}/>
+        <img src={image_url} alt=''/>
         <div className="item_details">
           <h2>{title}</h2>
           <p>{release_date}</p>

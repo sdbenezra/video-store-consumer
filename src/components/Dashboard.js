@@ -99,12 +99,9 @@ class Dashboard extends Component {
     return(
       <Router>
         <div>
-          <nav>
+          <nav className="item-list_container">
             <button>
               <Link to="/">Home</Link>
-            </button>
-            <button>
-              {this.state.movie.title}
             </button>
             <button>
               <Link to="/search/">Search</Link>
@@ -117,6 +114,9 @@ class Dashboard extends Component {
             </button>
             <button>
               {this.state.customer.name}
+            </button>
+            <button>
+              {this.state.movie.title}
             </button>
             <button onClick={this.checkout}>
               Rental

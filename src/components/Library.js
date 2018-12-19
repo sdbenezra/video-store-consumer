@@ -3,7 +3,7 @@ import axios from 'axios';
 import Movie from './Movie';
 
 class Library extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {

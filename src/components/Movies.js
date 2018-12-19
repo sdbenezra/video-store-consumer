@@ -82,9 +82,10 @@ class Movies extends Component {
 
     );
   };
+};
 
-
-
+Movies.propTypes = {
+  addMovieStatusCallback: PropTypes.func,
 };
 
 export default Movies
