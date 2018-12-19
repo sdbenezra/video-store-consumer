@@ -35,6 +35,24 @@ class Movies extends Component {
     console.log(this.state.movies);
   };
 
+  addToLibrary = (movie) => {
+    console.log(movie);
+    console.log(movie.title);
+    console.log(movie.overview);
+    const url = `http://localhost:3000/movies?title=${movie.title}&overview${movie.overview}&release_date${movie.release_date}&image_url${movie.image_url}&external_id${movie.external_id}`;
+    console.log(url);
+
+    axios.post(url, movie)
+    .then((response) => {
+
+    })
+    .catch((error) => {
+      this.setState({
+        error: error,
+      });
+    });
+  };
+
 
 
 
@@ -45,14 +63,14 @@ class Movies extends Component {
         <Movie
           key={i}
          {...movie}
-         movieActionCallback={this.addToLibrary}
+         movieActionCallback={() => this.addToLibrary(movie)}
           />
       );
     });
 
     return(
       <div>
-        <h1>TEST in Movies </h1>
+        <h1>Movies</h1>
         <SearchForm searchQueryCallback={this.searchMovie}/>
         <ul>
           {moviesList}
@@ -61,8 +79,6 @@ class Movies extends Component {
       </div>
 
     );
-
-
   };
 
 
