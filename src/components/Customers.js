@@ -4,8 +4,8 @@ import Customer from './Customer';
 import './Customers.css';
 
 class Customers extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       customers: [],
@@ -30,16 +30,17 @@ class Customers extends Component {
       console.log(this.state.customers);
     }
 
-    render(){
+    render(props){
       const customerList = this.state.customers.map((customer, i) => {
         return <Customer
           key={i}
           {...customer}
+          customerCallback={() => this.props.customerCallback(customer.name)}
           />
       })
 
       return(
-        <div className="customer-container">
+        <div className="item-list_container">
           {customerList}
         </div>
 
