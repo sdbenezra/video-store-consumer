@@ -17,6 +17,18 @@ class Dashboard extends Component {
 
   }
 
+
+movieActionCallback = (movie) => {
+  console.log(movie);
+  let movieTitle = movie.title
+
+  this.setState({
+    movieTitle: movieTitle
+  })
+
+}
+
+
   render() {
     return(
       <Router>
@@ -24,6 +36,9 @@ class Dashboard extends Component {
           <nav>
               <button>
                 <Link to="/">Home</Link>
+              </button>
+              <button>
+                {this.state.movieTitle}
               </button>
               <button>
                 <Link to="/search/">Search</Link>
@@ -41,7 +56,9 @@ class Dashboard extends Component {
 
           <Route path="/" exact component={Home} />
           <Route path="/search/" component={Movies} />
-          <Route path="/library/" component={Library} />
+          <Route path="/library/"
+            render={() => <Library movieActionCallback={this.movieActionCallback} />}
+              />
           <Route path="/customers/" component={Customers} />
 
         </div>
@@ -51,5 +68,7 @@ class Dashboard extends Component {
   }
 
 }
+
+
 
 export default Dashboard;

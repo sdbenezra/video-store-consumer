@@ -21,7 +21,7 @@ const Movie = (props) => {
         </div>
 
         <button
-          onClick={() => movieActionCallback(props)}
+          onClick={() => movieActionCallback()}
           className="item_button">Select for Rental</button>
         </ul>
       </div>
@@ -34,7 +34,7 @@ Movie.propTypes = {
   title: PropTypes.string,
   release_date: PropTypes.string,
   image_url: PropTypes.string,
-  movieActionCallback: PropTypes.func 
+  movieActionCallback: PropTypes.func
 }
 
 export default Movie;
