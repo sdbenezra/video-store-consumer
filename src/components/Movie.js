@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import "./Movie.css";
 
 
 const Movie = (props) => {
   const {
-    id, title, release_date, image_url, movieActionCallback
+    title, release_date, image_url, movieActionCallback
   } = props;
 
 
