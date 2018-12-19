@@ -13,11 +13,9 @@ class Library extends Component {
 
 
   componentDidMount() {
-    console.log("incomponedid mount");
     const GET_ALL_LIBRARY_URL = "http://localhost:3000/movies";
     axios.get(GET_ALL_LIBRARY_URL)
     .then((response) => {
-      console.log(response.data);
       this.setState({
         movies: response.data,
       });
@@ -40,6 +38,7 @@ class Library extends Component {
         <Movie
           key={movie.id}
           {...movie}
+          movieActionCallback={() => this.props.movieActionCallback(movie)}
           />
       )
 
