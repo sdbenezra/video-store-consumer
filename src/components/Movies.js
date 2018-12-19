@@ -40,9 +40,11 @@ class Movies extends Component {
   addToLibrary = (movie) => {
     console.log(movie);
     console.log(movie.title);
-    console.log(movie.overview);
-    const url = `http://localhost:3000/movies?title=${movie.title}&overview${movie.overview}&release_date${movie.release_date}&image_url${movie.image_url}&external_id${movie.external_id}`;
-    console.log(url);
+    console.log(movie.image_url);
+
+    const movieImage = movie.image_url.slice(32, -1);
+    const url = `http://localhost:3000/movies?title=${movie.title}&overview${movie.overview}&release_date${movie.release_date}&image_url${movieImage}&external_id${movie.external_id}`;
+    console.log(movieImage);
 
     axios.post(url, movie)
     .then((response) => {
@@ -54,8 +56,6 @@ class Movies extends Component {
       });
     });
   };
-
-
 
 
   render() {
