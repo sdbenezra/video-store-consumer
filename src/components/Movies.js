@@ -36,6 +36,8 @@ class Movies extends Component {
   };
 
 
+
+
   render() {
 
     const moviesList = this.state.movies.map((movie, i) => {
@@ -43,6 +45,7 @@ class Movies extends Component {
         <Movie
           key={i}
          {...movie}
+         movieActionCallback={this.addToLibrary}
           />
       );
     });
