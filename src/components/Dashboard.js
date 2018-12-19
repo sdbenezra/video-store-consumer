@@ -44,7 +44,7 @@ class Dashboard extends Component {
     console.log("rental button pressed");
     this.setState({
       showStatus: true,
-      message: "Movie checked out",
+      message: `${this.state.movieTitle} checked out to ${this.state.customerName}. Not really the button isn't hooked up yet.`,
     })
   }
 
