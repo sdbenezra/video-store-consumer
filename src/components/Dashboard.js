@@ -64,8 +64,9 @@ class Dashboard extends Component {
 
     })
     .catch((error) => {
+      console.log(error);
       this.setState({
-        error: error.message
+        message: "Your request failed, do you have both a customer and movie selected for this rental?",
       });
     });
   }
