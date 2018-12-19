@@ -17,6 +17,13 @@ class Dashboard extends Component {
 
   }
 
+  addCustomerName = (name) => {
+    const newState = {};
+    newState.customerName = name;
+    this.setState(newState);
+    console.log(newState.customerName);
+  };
+
   render() {
     return(
       <Router>
@@ -35,6 +42,9 @@ class Dashboard extends Component {
                 <Link to="/customers/">Customers</Link>
               </button>
               <button>
+                {this.state.customerName}
+              </button>
+              <button>
                 Rental
               </button>
           </nav>
@@ -42,7 +52,7 @@ class Dashboard extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/search/" component={Movies} />
           <Route path="/library/" component={Library} />
-          <Route path="/customers/" component={Customers} />
+          <Route path="/customers/" render={() => <Customers customerCallback={this.addCustomerName} />} />
 
         </div>
 
