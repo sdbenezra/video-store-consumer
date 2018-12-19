@@ -63,7 +63,7 @@ class Dashboard extends Component {
               Rental
             </button>
           </nav>
-
+          
           <Route path="/" exact component={Home} />
           <Route path="/search/" component={Movies} />
 

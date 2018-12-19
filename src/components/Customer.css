@@ -15,3 +15,37 @@
     background-color: #cfcfcf;
     font-size: 18px;
 }
+
+.status-bar {
+    border: 1px solid #000;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.status-bar--success {
+    background-color: #7bf96c;
+}
+
+.status-bar--hide {
+    display: none;
+}
+
+.status-bar__text {
+    margin: .4em;
+}
+
+.status-bar__button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
