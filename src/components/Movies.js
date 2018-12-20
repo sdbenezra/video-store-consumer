@@ -12,7 +12,7 @@ class Movies extends Component {
     this.state = {
       movies: [],
       query: '',
-
+      buttonLibrary: true,
     };
   };
 
@@ -63,6 +63,7 @@ class Movies extends Component {
           key={i}
          {...movie}
          movieActionCallback={() => this.addToLibrary(movie)}
+         buttonLibrary={this.state.buttonLibrary}
           />
       );
     });

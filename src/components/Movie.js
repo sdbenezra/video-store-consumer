@@ -11,6 +11,8 @@ const Movie = (props) => {
   console.log(id);
   console.log(image_url);
 
+  const buttonMessage = props.buttonLibrary ? 'Add to Library' : 'Select for Rental';
+
   return (
     <div className="library-container">
       <div className="item-list_container">
@@ -23,7 +25,7 @@ const Movie = (props) => {
 
         <button
           onClick={() => movieActionCallback()}
-          className="item_button">Select for Rental</button>
+          className="item_button">{buttonMessage}</button>
         </ul>
       </div>
     </div>
