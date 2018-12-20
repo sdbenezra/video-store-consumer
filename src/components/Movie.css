@@ -19,7 +19,7 @@
 
 .item__button {
     background-color: #cfcfcf;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 div {
@@ -29,11 +29,13 @@ div {
 .item-list_container {
   border: 1px solid #000;
   background-color: #595959;
-
-
 }
 
 ul {
     list-style-type: none;
+}
 
+.form-input {
+    background-color: lightgray;
+    font-size: 1rem;
 }

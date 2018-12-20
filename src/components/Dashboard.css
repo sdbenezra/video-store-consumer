@@ -1,13 +1,31 @@
 .dashboard-link {
-text-decoration: none;
+  text-decoration: none;
 }
 
 .dashboard-item {
-    border: 5px solid green;
-    margin: 3px;
-    font-size: 1rem;
+  display: inline-block;
+  border: 5px solid lightgreen;
+  margin: 3px;
+  font-size: 1rem;
 }
 
 .item-list_container {
   justify-content: center;
+}
+
+.label {
+  background-color: lightgray;
+  display: inline-block;
+}
+
+.movie-customer-label {
+  background-color: lightgreen;
+  display: inline-block;
+  font-size: 1rem;
+  padding: .1rem;
+}
+
+.selected-movie-customer {
+  font-size: 1rem;
+  background-color: white;
 }

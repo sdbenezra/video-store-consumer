@@ -71,15 +71,15 @@ class Movies extends Component {
       <div>
         <h1>Movies</h1>
         <SearchForm searchQueryCallback={this.searchMovie}/>
-        <ul>
-          {moviesList}
-        </ul>
+        <div className="item-list_container">
+              {moviesList}
+        </div>
 
       </div>
 
     );
-  };
-};
+  }
+}
 
 Movies.propTypes = {
   addMovieStatusCallback: PropTypes.func,

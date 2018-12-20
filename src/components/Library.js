@@ -48,11 +48,9 @@ class Library extends Component {
 
     return(
       <div>
-        <ul>
-          <li>
+        <div className="item-list_container">
             {movies}
-          </li>
-        </ul>
+        </div>
       </div>
     )
   }

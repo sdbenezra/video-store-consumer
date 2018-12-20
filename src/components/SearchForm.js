@@ -9,7 +9,7 @@ class SearchForm extends Component {
     this.state = {
       query: '',
     };
-  };
+  }
 
 
   onInputChange = (event) => {
@@ -22,8 +22,6 @@ class SearchForm extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-
-    const { query } = this.state;
 
     this.props.searchQueryCallback(this.state);
 

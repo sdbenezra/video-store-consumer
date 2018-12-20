@@ -113,13 +113,19 @@ class Dashboard extends Component {
             <button className="dashboard-item">
               <Link to="/customers/" className="dashboard-link">Customers</Link>
             </button>
-            <button>
-              {this.state.movie.title? this.state.movie.title : "Movie Selection"}
-            </button>
-            <button>
-              {this.state.customer.name? this.state.customer.name : "Customer Name"}
-            </button>
-            <button onClick={this.checkout} className="dashboard-item">
+            <div className="dashboard-item">
+              <label htmlFor="movie" className="movie-customer-label">Selected Movie</label>
+              <button id="movie" className="selected-movie-customer" >
+                {this.state.movie.title? this.state.movie.title : "None"}
+              </button>
+            </div>
+            <div className="dashboard-item">
+              <label htmlFor="customer" className="movie-customer-label">Selected Customer</label>
+              <button className="selected-movie-customer">
+                {this.state.customer.name ? this.state.customer.name : "None"}
+              </button>
+            </div>
+            <button onClick={this.checkout} className="dashboard-item movie-customer-label">
               Check Out New Rental
             </button>
           </nav>
