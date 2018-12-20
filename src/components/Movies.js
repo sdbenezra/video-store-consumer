@@ -6,13 +6,13 @@ import Movie from './Movie';
 
 
 class Movies extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
       movies: [],
       query: '',
-
+      buttonLibrary: true,
     };
   };
 
@@ -38,15 +38,11 @@ class Movies extends Component {
 
 
   addToLibrary = (movie) => {
-    console.log(movie);
-    console.log(movie.title);
-    console.log(movie.overview);
-    const url = `http://localhost:3000/movies?title=${movie.title}&overview${movie.overview}&release_date${movie.release_date}`;
-    console.log(url);
+    const url = `http://localhost:3000/movies`;
 
     axios.post(url, movie)
     .then((response) => {
-       console.log(response);
+      console.log(response.data);
        this.props.addMovieStatusCallback(movie)
     })
     .catch((error) => {
@@ -54,9 +50,8 @@ class Movies extends Component {
         error: error,
       });
     });
+
   };
-
-
 
 
   render() {
@@ -67,6 +62,7 @@ class Movies extends Component {
           key={i}
          {...movie}
          movieActionCallback={() => this.addToLibrary(movie)}
+         buttonLibrary={this.state.buttonLibrary}
           />
       );
     });

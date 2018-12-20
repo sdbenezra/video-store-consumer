@@ -5,10 +5,13 @@ import "./Movie.css";
 
 const Movie = (props) => {
   const {
-    title, release_date, image_url, movieActionCallback
+    id, title, release_date, image_url, movieActionCallback
   } = props;
 
+  console.log(id);
+  console.log(image_url);
 
+  const buttonMessage = props.buttonLibrary ? 'Add to Library' : 'Select for Rental';
 
   return (
     <div className="library-container">
@@ -22,7 +25,7 @@ const Movie = (props) => {
 
         <button
           onClick={() => movieActionCallback()}
-          className="item_button">Select for Rental</button>
+          className="item_button">{buttonMessage}</button>
         </ul>
       </div>
     </div>
@@ -34,7 +37,8 @@ Movie.propTypes = {
   title: PropTypes.string,
   release_date: PropTypes.string,
   image_url: PropTypes.string,
-  movieActionCallback: PropTypes.func
+  movieActionCallback: PropTypes.func,
+  buttonLibrary: PropTypes.string,
 }
 
 export default Movie;
