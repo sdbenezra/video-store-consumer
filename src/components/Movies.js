@@ -41,11 +41,12 @@ class Movies extends Component {
     console.log(movie);
     console.log(movie.title);
     console.log(movie.overview);
-    const url = `http://localhost:3000/movies?title=${movie.title}&overview${movie.overview}&release_date${movie.release_date}&image_url${movie.image_url}&external_id${movie.external_id}`;
+    const url = `http://localhost:3000/movies?title=${movie.title}&overview${movie.overview}&release_date${movie.release_date}`;
     console.log(url);
 
     axios.post(url, movie)
     .then((response) => {
+       console.log(response);
        this.props.addMovieStatusCallback(movie)
     })
     .catch((error) => {

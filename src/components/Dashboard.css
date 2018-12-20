@@ -1,0 +1,13 @@
+.dashboard-link {
+text-decoration: none;
+}
+
+.dashboard-item {
+    border: 5px solid green;
+    margin: 3px;
+    font-size: 1rem;
+}
+
+.item-list_container {
+  justify-content: center;
+}

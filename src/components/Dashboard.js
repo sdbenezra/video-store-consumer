@@ -6,6 +6,7 @@ import Customers from './Customers';
 import Library from './Library';
 import Home from './Home';
 import axios from 'axios';
+import './Dashboard.css'
 
 class Dashboard extends Component {
   constructor() {
@@ -100,26 +101,26 @@ class Dashboard extends Component {
       <Router>
         <div>
           <nav className="item-list_container">
-            <button>
-              <Link to="/">Home</Link>
+            <button className="dashboard-item">
+              <Link to="/"  className="dashboard-link">Home</Link>
+            </button>
+            <button className="dashboard-item">
+              <Link to="/search/" className="dashboard-link">Search</Link>
+            </button>
+            <button className="dashboard-item">
+              <Link to="/library/" className="dashboard-link">Library</Link>
+            </button>
+            <button className="dashboard-item">
+              <Link to="/customers/" className="dashboard-link">Customers</Link>
             </button>
             <button>
-              <Link to="/search/">Search</Link>
+              {this.state.movie.title? this.state.movie.title : "Movie Selection"}
             </button>
             <button>
-              <Link to="/library/">Library</Link>
+              {this.state.customer.name? this.state.customer.name : "Customer Name"}
             </button>
-            <button>
-              <Link to="/customers/">Customers</Link>
-            </button>
-            <button>
-              {this.state.customer.name}
-            </button>
-            <button>
-              {this.state.movie.title}
-            </button>
-            <button onClick={this.checkout}>
-              Rental
+            <button onClick={this.checkout} className="dashboard-item">
+              Check Out New Rental
             </button>
           </nav>
 

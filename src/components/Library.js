@@ -35,6 +35,7 @@ class Library extends Component {
     let movieData = this.state.movies;
 
     const movies = movieData.map((movie, i) => {
+      console.log(movie);
       return (
         <Movie
           key={movie.id}
