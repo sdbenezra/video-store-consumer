@@ -7,7 +7,7 @@ const Movie = (props) => {
   const {
     id, title, release_date, image_url, movieActionCallback
   } = props;
-
+  
   console.log(id);
   console.log(image_url);
 
