@@ -38,22 +38,13 @@ class Movies extends Component {
 
 
   addToLibrary = (movie) => {
-    console.log(movie);
-    console.log(movie.title);
-    console.log(movie.image_url);
 
-    const movieImage = movie.image_url.slice(31, -1);
-
-    const url = `http://localhost:3000/movies?title=${movie.title}&overview${movie.overview}&release_date${movie.release_date}&image_url${movieImage}&external_id${movie.external_id}`;
-    console.log("ORIGINAL URL");
-    console.log(url);
+    const url = `http://localhost:3000/movies`;
 
     axios.post(url, movie)
     .then((response) => {
       console.log(response.data);
        this.props.addMovieStatusCallback(movie)
-       console.log(movieImage);
-       console.log(movie.image_url);
     })
     .catch((error) => {
       this.setState({

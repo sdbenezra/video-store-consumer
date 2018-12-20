@@ -5,10 +5,11 @@ import "./Movie.css";
 
 const Movie = (props) => {
   const {
-    title, release_date, image_url, movieActionCallback
+    id, title, release_date, image_url, movieActionCallback
   } = props;
 
-
+  console.log(id);
+  console.log(image_url);
 
   return (
     <div className="library-container">
